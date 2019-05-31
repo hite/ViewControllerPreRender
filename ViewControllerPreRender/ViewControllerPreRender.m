@@ -32,7 +32,7 @@ static ViewControllerPreRender *_myRender = nil;
 - (UIViewController *)getRendered:(Class)viewControllerClass{
     if (_windowNO2 == nil) {
         CGRect full = [UIScreen mainScreen].bounds;
-        UIWindow *no2 = [[UIWindow alloc] initWithFrame:CGRectOffset(full, CGRectGetWidth(full)-100, 100)];
+        UIWindow *no2 = [[UIWindow alloc] initWithFrame:CGRectOffset(full, CGRectGetWidth(full), 0)];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[UIViewController new]];
         no2.rootViewController = nav;
         no2.hidden = NO;

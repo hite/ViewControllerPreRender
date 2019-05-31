@@ -1,84 +1,108 @@
-
- push2setUrl = 0.367920
- push2finish = 1846.659912
- push2decidePolicy = 737
- decidePolicy2navigationStart = 5
- push2navigationStart = 742
-
- push2setUrl = 1.111084
- push2finish = 1532.366943
- push2decidePolicy = 570
- decidePolicy2navigationStart = 5
- push2navigationStart = 575
-
- push2setUrl = 0.809082
- push2finish = 1751.115967
- push2decidePolicy = 780
- decidePolicy2navigationStart = 4
- push2navigationStart = 784
-
- push2setUrl = 0.781982
- push2finish = 2171.862061
- push2decidePolicy = 1154
- decidePolicy2navigationStart = 3
- push2navigationStart = 1157
-
- push2setUrl = 0.435791
- push2finish = 1498.021240
- push2decidePolicy = 529
- decidePolicy2navigationStart = 6
- push2navigationStart = 535
-
- push2setUrl = 1.193848
- push2finish = 2182.666016
- push2decidePolicy = 1093
- decidePolicy2navigationStart = 4
- push2navigationStart = 1097
-
- push2setUrl = 0.808838
- push2finish = 1546.238037
- push2decidePolicy = 513
- decidePolicy2navigationStart = 6
- push2navigationStart = 519
-
- push2setUrl = 0.622070
- push2finish = 1593.925049
- push2decidePolicy = 544
- decidePolicy2navigationStart = 10
- push2navigationStart = 554
-
- push2setUrl = 0.356934
- push2finish = 2265.867920
- push2decidePolicy = 1165
- decidePolicy2navigationStart = 5
- push2navigationStart = 1170
-
- push2setUrl = 1.022949
- push2finish = 1730.401123
- push2decidePolicy = 594
- decidePolicy2navigationStart = 6
- push2navigationStart = 600
-
- push2setUrl = 0.322021
- push2finish = 1752.315186
- push2decidePolicy = 727
- decidePolicy2navigationStart = 5
- push2navigationStart = 732
-
- push2setUrl = 1.000977
- push2finish = 2201.596924
- push2decidePolicy = 821
- decidePolicy2navigationStart = 4
- push2navigationStart = 825
-
- push2setUrl = 0.918945
- push2finish = 2074.483887
- push2decidePolicy = 739
- decidePolicy2navigationStart = 5
- push2navigationStart = 744
-
- push2setUrl = 1.262939
- push2finish = 1806.544922
- push2decidePolicy = 841
- decidePolicy2navigationStart = 6
- push2navigationStart = 847
+[Timing] 
+[Timing] push2setUrl = 64.522949 
+[Timing] push2finish = 1454.382080 
+[Timing] push2decidePolicy = 111 
+[Timing] decidePolicy2navigationStart = 2 
+[Timing] push2navigationStart = 113 
+[Timing] 
+[Timing] push2setUrl = 48.687012 
+[Timing] push2finish = 1285.288818 
+[Timing] push2decidePolicy = 77 
+[Timing] decidePolicy2navigationStart = 2 
+[Timing] push2navigationStart = 79 
+[Timing] 
+[Timing] push2setUrl = 42.260986 
+[Timing] push2finish = 1300.068115 
+[Timing] push2decidePolicy = 88 
+[Timing] decidePolicy2navigationStart = 4 
+[Timing] push2navigationStart = 92 
+[Timing] 
+[Timing] push2setUrl = 41.084961 
+[Timing] push2finish = 1444.260010 
+[Timing] push2decidePolicy = 71 
+[Timing] decidePolicy2navigationStart = 7 
+[Timing] push2navigationStart = 78 
+[Timing] 
+[Timing] push2setUrl = 39.801025 
+[Timing] push2finish = 1438.300049 
+[Timing] push2decidePolicy = 68 
+[Timing] decidePolicy2navigationStart = 5 
+[Timing] push2navigationStart = 73 
+[Timing] 
+[Timing] push2setUrl = 39.239014 
+[Timing] push2finish = 1481.501221 
+[Timing] push2decidePolicy = 63 
+[Timing] decidePolicy2navigationStart = 2 
+[Timing] push2navigationStart = 65 
+[Timing] 
+[Timing] push2setUrl = 39.562988 
+[Timing] push2finish = 1386.489258 
+[Timing] push2decidePolicy = 64 
+[Timing] decidePolicy2navigationStart = 2 
+[Timing] push2navigationStart = 66 
+[Timing] 
+[Timing] push2setUrl = 39.304932 
+[Timing] push2finish = 1280.473877 
+[Timing] push2decidePolicy = 63 
+[Timing] decidePolicy2navigationStart = 9 
+[Timing] push2navigationStart = 72 
+[Timing] 
+[Timing] push2setUrl = 40.439941 
+[Timing] push2finish = 1522.291016 
+[Timing] push2decidePolicy = 70 
+[Timing] decidePolicy2navigationStart = 6 
+[Timing] push2navigationStart = 76 
+[Timing] 
+[Timing] push2setUrl = 32.190918 
+[Timing] push2finish = 1311.799072 
+[Timing] push2decidePolicy = 57 
+[Timing] decidePolicy2navigationStart = 9 
+[Timing] push2navigationStart = 66 
+[Timing] 
+[Timing] push2setUrl = 32.577148 
+[Timing] push2finish = 1678.435791 
+[Timing] push2decidePolicy = 57 
+[Timing] decidePolicy2navigationStart = 3 
+[Timing] push2navigationStart = 60 
+[Timing] 
+[Timing] push2setUrl = 43.409180 
+[Timing] push2finish = 1449.776855 
+[Timing] push2decidePolicy = 74 
+[Timing] decidePolicy2navigationStart = 5 
+[Timing] push2navigationStart = 79 
+[Timing] 
+[Timing] push2setUrl = 40.168945 
+[Timing] push2finish = 1312.054199 
+[Timing] push2decidePolicy = 71 
+[Timing] decidePolicy2navigationStart = 4 
+[Timing] push2navigationStart = 75 
+[Timing] 
+[Timing] push2setUrl = 38.052002 
+[Timing] push2finish = 1572.002930 
+[Timing] push2decidePolicy = 70 
+[Timing] decidePolicy2navigationStart = 7 
+[Timing] push2navigationStart = 77 
+[Timing] 
+[Timing] push2setUrl = 40.468018 
+[Timing] push2finish = 1387.616943 
+[Timing] push2decidePolicy = 68 
+[Timing] decidePolicy2navigationStart = 1 
+[Timing] push2navigationStart = 69 
+[Timing] 
+[Timing] push2setUrl = 40.675049 
+[Timing] push2finish = 1532.381104 
+[Timing] push2decidePolicy = 72 
+[Timing] decidePolicy2navigationStart = 2 
+[Timing] push2navigationStart = 74 
+[Timing] 
+[Timing] push2setUrl = 38.729004 
+[Timing] push2finish = 1627.913086 
+[Timing] push2decidePolicy = 62 
+[Timing] decidePolicy2navigationStart = 2 
+[Timing] push2navigationStart = 64 
+[Timing] 
+[Timing] push2setUrl = 39.722900 
+[Timing] push2finish = 1456.595947 
+[Timing] push2decidePolicy = 70 
+[Timing] decidePolicy2navigationStart = 3 
+[Timing] push2navigationStart = 73 
