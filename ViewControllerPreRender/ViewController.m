@@ -21,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self printViews];
     [self.view addSubview:self.webView];
     
     UIBarButtonItem *reuse = [[UIBarButtonItem alloc] initWithTitle:@"reuse" style:UIBarButtonItemStylePlain target:self action:@selector(push2vc:)];
@@ -28,6 +29,19 @@
     self.navigationItem.rightBarButtonItems = @[reuse, no_reuse];
     
     NSLog(@"%@ : %@, %p",self.url, NSStringFromSelector(_cmd), self);
+    [self printViews];
+}
+
+- (void)printViews
+{
+    printf("\r\n");
+    UIView *view = self.viewIfLoaded;
+    int i = 0;
+    while (view != nil) {
+        printf("%d = %s\r\n", i++, [[view description] UTF8String]);
+        view = view.superview;
+    }
+    printf("\r\n");
 }
 
 #define mylog(format, ...) _mylog("[Timing] ", format, ##__VA_ARGS__)
@@ -47,6 +61,7 @@
         [self.webView loadRequest:[NSURLRequest requestWithURL:url2 cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:1000]];
         
     }
+    [self printViews];
 }
 
 - (void)push2vc:(id)sender
@@ -143,35 +158,47 @@
 
 // 以下为测试 view 都干了啥而设置的代理
 #pragma mark - test
+- (void)loadView{
+    [self printViews];
+    [super loadView];
+    NSLog(@"%@ : %@, %p",self.url, NSStringFromSelector(_cmd), self);
+    [self printViews];
+}
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     NSLog(@"%@ : %@, %p",self.url, NSStringFromSelector(_cmd), self);
+    [self printViews];
 }
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     NSLog(@"%@ : %@, %p",self.url, NSStringFromSelector(_cmd), self);
+    [self printViews];
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     NSLog(@"%@ : %@, %p",self.url, NSStringFromSelector(_cmd), self);
+    [self printViews];
 }
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
     NSLog(@"%@ : %@, %p",self.url, NSStringFromSelector(_cmd), self);
+    [self printViews];
 }
 
 - (void)viewWillLayoutSubviews{
     [super viewWillLayoutSubviews];
     NSLog(@"%@ : %@, %p",self.url, NSStringFromSelector(_cmd), self);
+    [self printViews];
 }
 
 - (void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
     NSLog(@"%@ : %@, %p",self.url, NSStringFromSelector(_cmd), self);
+    [self printViews];
 }
 
 - (void)dealloc
@@ -182,6 +209,7 @@
 - (void)viewLayoutMarginsDidChange{
     [super viewLayoutMarginsDidChange];
     NSLog(@"%@ : %@, %p",self.url, NSStringFromSelector(_cmd), self);
+    [self printViews];
 }
 
 #pragma contentContainer
@@ -189,10 +217,12 @@
 {
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
     NSLog(@"%@ : %@, %p",self.url, NSStringFromSelector(_cmd), self);
+    [self printViews];
 }
 - (void)willTransitionToTraitCollection:(UITraitCollection *)newCollection withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
 {
     [super willTransitionToTraitCollection:newCollection withTransitionCoordinator:coordinator];
     NSLog(@"%@ : %@, %p",self.url, NSStringFromSelector(_cmd), self);
+    [self printViews];
 }
 @end

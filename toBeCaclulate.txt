@@ -106,3 +106,4 @@
 [Timing] push2decidePolicy = 70 
 [Timing] decidePolicy2navigationStart = 3 
 [Timing] push2navigationStart = 73 
+

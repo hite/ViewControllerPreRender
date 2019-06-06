@@ -25,6 +25,11 @@ static ViewControllerPreRender *_myRender = nil;
     dispatch_once(&onceToken, ^{
         _myRender = [ViewControllerPreRender new];
         _myRender.renderedViewControllers = [NSMutableDictionary dictionaryWithCapacity:3];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:_myRender
+                                                 selector:@selector(dealMemoryWarnings:)
+                                                     name:UIApplicationDidReceiveMemoryWarningNotification
+                                                   object:nil];
     });
     return _myRender;
 }
@@ -32,7 +37,7 @@ static ViewControllerPreRender *_myRender = nil;
 - (UIViewController *)getRendered:(Class)viewControllerClass{
     if (_windowNO2 == nil) {
         CGRect full = [UIScreen mainScreen].bounds;
-        UIWindow *no2 = [[UIWindow alloc] initWithFrame:CGRectOffset(full, CGRectGetWidth(full), 0)];
+        UIWindow *no2 = [[UIWindow alloc] initWithFrame:CGRectMake(10, 10, 10, 10)];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[UIViewController new]];
         no2.rootViewController = nav;
         no2.hidden = NO;
@@ -72,5 +77,11 @@ static ViewControllerPreRender *_myRender = nil;
         block(vc1);
     }];
     [CATransaction commit];
+}
+
+- (void)dealMemoryWarnings:(id)notif
+{
+    NSLog(@"release memory pressure");
+//    [self.renderedViewControllers removeAllObjects];
 }
 @end
