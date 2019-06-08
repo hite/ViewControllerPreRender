@@ -19,10 +19,11 @@
 @implementation ViewController
 
 - (void)viewDidLoad {
+    [self printViewsBefore];
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self printViews];
     [self.view addSubview:self.webView];
+    self.webView.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentAlways;
     
     UIBarButtonItem *reuse = [[UIBarButtonItem alloc] initWithTitle:@"reuse" style:UIBarButtonItemStylePlain target:self action:@selector(push2vc:)];
     UIBarButtonItem *no_reuse = [[UIBarButtonItem alloc] initWithTitle:@"no_reuse" style:UIBarButtonItemStylePlain target:self action:@selector(push2vc_v2:)];
@@ -32,10 +33,19 @@
     [self printViews];
 }
 
+
+- (void)printViewsBefore{
+//    printf("Before\r\n");
+//    [self printViews];
+}
 - (void)printViews
 {
     printf("\r\n");
     UIView *view = self.viewIfLoaded;
+    if (view == nil) {
+        printf("<empty>\r\n");
+        return;
+    }
     int i = 0;
     while (view != nil) {
         printf("%d = %s\r\n", i++, [[view description] UTF8String]);
@@ -73,29 +83,6 @@
     [[ViewControllerPreRender defaultRender] showRenderedViewController:ViewController.class completion:^(UIViewController * _Nonnull vc) {
         
         ViewController *vc3 = (ViewController *)vc;
-        long now = [[NSDate date] timeIntervalSince1970] * 1000;
-        NSInteger type = now % 5;
-        NSString *url = nil;
-        switch (type) {
-            case 0:
-                url = @"http://hite.me";
-                break;
-            case 1:
-                url = @"http://dota2.uuu9.com";
-                break;
-            case 2:
-                url = @"http://www.vpgame.com";
-                break;
-            case 3:
-                url = @"https://m.chouti.com";
-                break;
-            case 4:
-                url = @"http://m.you.163.com";
-                break;
-                
-            default:
-                break;
-        }
         vc3.url = @"http://m.you.163.com";
         [self.navigationController pushViewController:vc3 animated:YES];
     }];
@@ -120,6 +107,9 @@
         long long navigationStart = [r longLongValue];
         //        mylog("navigationStart time = %lld, decidePolicy = %lld ", navigationStart, kDecidePolicyStart);
         mylog("push2decidePolicy = %lld ", kDecidePolicyStart - kPushStart);
+        // 根据我以前文章 https://www.jianshu.com/p/d7e79b58979c ，
+        // performance 端的 navigationStart 应该和 decidePolicyForNavigationAction 是一样的。
+        // 这里是验证下误差
         mylog("decidePolicy2navigationStart = %lld ", navigationStart - kDecidePolicyStart);
         mylog("push2navigationStart = %lld ", navigationStart - kPushStart);
     }];
@@ -130,9 +120,11 @@
 {
     mylog("<%p> %s", self, [NSStringFromSelector(_cmd) UTF8String]);
 }
+
 - (void)webViewWebContentProcessDidTerminate:(WKWebView *)webView{
     mylog("<%p> %s", self, [NSStringFromSelector(_cmd) UTF8String]);
 }
+
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
 {
     NSURLRequest *request = navigationAction.request;
@@ -159,43 +151,49 @@
 // 以下为测试 view 都干了啥而设置的代理
 #pragma mark - test
 - (void)loadView{
-    [self printViews];
+    [self printViewsBefore];
     [super loadView];
     NSLog(@"%@ : %@, %p",self.url, NSStringFromSelector(_cmd), self);
     [self printViews];
 }
 - (void)viewWillAppear:(BOOL)animated
 {
+    [self printViewsBefore];
     [super viewWillAppear:animated];
     NSLog(@"%@ : %@, %p",self.url, NSStringFromSelector(_cmd), self);
     [self printViews];
 }
 - (void)viewDidAppear:(BOOL)animated
 {
+    [self printViewsBefore];
     [super viewDidAppear:animated];
     NSLog(@"%@ : %@, %p",self.url, NSStringFromSelector(_cmd), self);
     [self printViews];
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [self printViewsBefore];
     [super viewWillDisappear:animated];
     NSLog(@"%@ : %@, %p",self.url, NSStringFromSelector(_cmd), self);
     [self printViews];
 }
 - (void)viewDidDisappear:(BOOL)animated
 {
+    [self printViewsBefore];
     [super viewDidDisappear:animated];
     NSLog(@"%@ : %@, %p",self.url, NSStringFromSelector(_cmd), self);
     [self printViews];
 }
 
 - (void)viewWillLayoutSubviews{
+    [self printViewsBefore];
     [super viewWillLayoutSubviews];
     NSLog(@"%@ : %@, %p",self.url, NSStringFromSelector(_cmd), self);
     [self printViews];
 }
 
 - (void)viewDidLayoutSubviews{
+    [self printViewsBefore];
     [super viewDidLayoutSubviews];
     NSLog(@"%@ : %@, %p",self.url, NSStringFromSelector(_cmd), self);
     [self printViews];
@@ -207,6 +205,7 @@
 }
 
 - (void)viewLayoutMarginsDidChange{
+    [self printViewsBefore];
     [super viewLayoutMarginsDidChange];
     NSLog(@"%@ : %@, %p",self.url, NSStringFromSelector(_cmd), self);
     [self printViews];
